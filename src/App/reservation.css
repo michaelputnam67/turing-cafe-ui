@@ -1,0 +1,8 @@
+.reservation {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	background: white;
+	border: solid 5px teal;
+	color: teal;
+}

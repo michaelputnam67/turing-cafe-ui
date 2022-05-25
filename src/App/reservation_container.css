@@ -1,0 +1,7 @@
+.resy-container {
+	height: 95%;
+	width: 96vw;
+	display: grid;
+	grid-gap: 20px;
+	grid-template-columns: repeat(5, 1fr);
+}
