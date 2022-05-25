@@ -14,6 +14,14 @@ class App extends Component {
     }
   }
 
+  postReservations = (data) => {
+    apiCalls.postReservation(data).then(() => {
+      apiCalls.getReservations().then(data => this.setState({
+        reservations: data
+      }))
+    })
+  }
+
   componentDidMount() {
     apiCalls.getReservations().then(data => this.setState({
       reservations: data
@@ -24,9 +32,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
-        <div className='resy-form'>
-
-        </div>
+        <Form postReservations={this.postReservations} />
         <Reservation_Container reservations={this.state.reservations} />
       </div>
     )
