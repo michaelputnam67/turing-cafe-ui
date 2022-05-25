@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { apiCalls } from './apiCalls'
 import './form.css'
 
 export default class Form extends Component {
@@ -40,7 +39,7 @@ export default class Form extends Component {
 					placeholder='Date (mm/dd)'
 				/>
 				<input
-					type='number'
+					type='time'
 					name='time'
 					value={this.state.time}
 					onChange={this.handleChange}
@@ -52,6 +51,7 @@ export default class Form extends Component {
 					value={this.state.numberOfGuests}
 					onChange={this.handleChange}
 					placeholder='Number of Guests'
+					pattern="[0-9]{2}:[0-9]{2}"
 				/>
 				<button type='submit' onClick={() => this.props.postReservations(this.state)} >
 					Make Reservation
