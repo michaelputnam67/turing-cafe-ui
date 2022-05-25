@@ -14,7 +14,9 @@ class App extends Component {
     }
   }
 
-  postReservations = (data) => {
+  postReservations = (data, event) => {
+    event.preventDefault()
+    console.log(data)
     apiCalls.postReservation(data).then(() => {
       apiCalls.getReservations().then(data => this.setState({
         reservations: data

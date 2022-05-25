@@ -21,13 +21,14 @@ export default class Form extends Component {
 
 	render() {
 		return (
-			<div className='resy-form'>
+			<form className='resy-form' onSubmit={(event) => this.props.postReservations(this.state, event)}>
 				<input
 					type='text'
 					name='name'
 					value={this.state.name}
 					onChange={this.handleChange}
 					placeholder='Name'
+					required={true}
 				/>
 				<input
 					type='date'
@@ -37,6 +38,7 @@ export default class Form extends Component {
 					value={this.state.date}
 					onChange={this.handleChange}
 					placeholder='Date (mm/dd)'
+					required={true}
 				/>
 				<input
 					type='time'
@@ -44,6 +46,8 @@ export default class Form extends Component {
 					value={this.state.time}
 					onChange={this.handleChange}
 					placeholder='Time'
+					pattern="[0-9]{2}:[0-9]{2}"
+					required={true}
 				/>
 				<input
 					type='number'
@@ -51,12 +55,12 @@ export default class Form extends Component {
 					value={this.state.numberOfGuests}
 					onChange={this.handleChange}
 					placeholder='Number of Guests'
-					pattern="[0-9]{2}:[0-9]{2}"
+					required={true}
 				/>
-				<button type='submit' onClick={() => this.props.postReservations(this.state)} >
+				<button type='submit'  >
 					Make Reservation
 				</button>
-			</div>
+			</form>
 		)
 	}
 }
